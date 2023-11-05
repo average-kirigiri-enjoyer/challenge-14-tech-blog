@@ -3,7 +3,7 @@ const {Model, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection');
 
 //extends comment model from Model
-class Comment extends Model {}
+class Post extends Model {}
 
 //initializes post model
 Post.init(
@@ -43,6 +43,7 @@ Post.init(
 },
 {
 		sequelize,
+		timestamps: false,
 		freezeTableName: true,
 		modelName: 'post',
 });

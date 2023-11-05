@@ -4,7 +4,8 @@
   "description": "weekly challenge for module 14; creating a tech blog website where users can make posts &amp; comments",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node ./seeds/"
   },
   "repository": {
     "type": "git",

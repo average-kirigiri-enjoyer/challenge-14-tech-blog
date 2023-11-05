@@ -39,7 +39,7 @@ User.init(
 {
 	hooks:
 	{
-		//hook to convert a user's password to a 12-character hashed version before it is stored in the database
+		//hook to convert a user's password to a hashed version before it is stored in the database
 		beforeCreate: async (userData) =>
 		{
 			userData.password = await bcrypt.hash(userData.password, 12);
