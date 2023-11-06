@@ -27,7 +27,7 @@ Post.init(
 	},
 	date:
 	{
-		type: DataTypes.DATE,
+		type: DataTypes.DATEONLY,
 		defaultValue: DataTypes.NOW,
 		allowNull: false,
 	},
@@ -38,6 +38,15 @@ Post.init(
 		{
 			model: 'user',
 			key: 'id',
+		},
+	},
+	user_name:
+	{
+		type: DataTypes.STRING,
+		references:
+		{
+			model: 'user',
+			key: 'username',
 		},
 	},
 },

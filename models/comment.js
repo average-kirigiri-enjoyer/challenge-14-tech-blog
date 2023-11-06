@@ -22,17 +22,17 @@ Comment.init(
 	},
 	date:
 	{
-		type: DataTypes.DATE,
+		type: DataTypes.DATEONLY,
 		defaultValue: DataTypes.NOW,
 		allowNull: false,
 	},
-	user_id:
+	user_name:
 	{
-		type: DataTypes.INTEGER,
+		type: DataTypes.STRING,
 		references:
 		{
 			model: 'user',
-			key: 'id',
+			key: 'username',
 		},
 	},
 	post_id:

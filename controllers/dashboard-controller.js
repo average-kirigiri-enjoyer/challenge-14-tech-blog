@@ -2,7 +2,7 @@
 const router = require('express').Router();
 const {Post} = require('../models');
 const loggedInAuth = require('../utils/loggedInAuth');
-require('dotenv').config();
+const userIDAuth = require('../utils/userIDAuth.js')
 //==============================================================
 
 //GET route to view the user's dashboard page
@@ -20,7 +20,7 @@ router.get('/', loggedInAuth, async (req, res) =>
 		});
 		const posts = postData.map((post) => post.get({plain: true}));
 
-		console.log(posts);
+		console.log(postData);
 
 		res.status(200).render('dashboard',
 		{
@@ -38,13 +38,12 @@ router.get('/', loggedInAuth, async (req, res) =>
 
 //GET route to render the blog post edit page
 //==============================================================
-router.get('/edit/:id', async (req, res) =>
+router.get('/edit/:id', loggedInAuth, userIDAuth, async (req, res) =>
 {
-	const blogPostData = await Post.findByPk(req.params.id, {include: [{model: Comment}]});
+	const blogPostData = await Post.findByPk(req.params.id);
 	const blogPost = blogPostData.get({plain: true});
 
 	console.log(blogPostData);
-	console.log(blogPost);
 
 	res.render('new-post',
 	{

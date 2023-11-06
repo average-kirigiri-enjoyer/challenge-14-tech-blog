@@ -5,7 +5,6 @@ const postRoutes = require('./post-controller');
 
 //sets router to redirect requests accordingly;
 router.use('/users', userRoutes);
-router.use('/trips', tripsRoutes);
 router.use('/blog-post', postRoutes);
 
 module.exports = router;

@@ -1,6 +1,7 @@
 //importing packages & other files
 const {Post, Comment} = require('../../models');
 const loggedInAuth = require('../../utils/loggedInAuth.js');
+const userIDAuth = require('../../utils/userIDAuth.js')
 const router = require('express').Router();
 //==============================================================
 

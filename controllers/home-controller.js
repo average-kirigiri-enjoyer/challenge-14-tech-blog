@@ -14,10 +14,12 @@ router.get('/', async (req, res) =>
 		const postData = await Post.findAll();
 
 		console.log(postData);
+		const posts = postData.map((post) => post.get({plain: true}));
+		console.log(posts);
 
 		res.status(200).render('homepage',
 		{
-			postData,
+			posts,
 			logged_in: req.session.logged_in,
 		});
 	}
@@ -37,7 +39,6 @@ router.get('/blog-post/:id', loggedInAuth, async (req, res) =>
 			const blogPostData = await Post.findByPk(req.params.id, {include: [{model: Comment}]});
 			const blogPost = blogPostData.get({plain: true});
 
-			console.log(blogPostData);
 			console.log(blogPost);
 
 			res.status(200).render('topic',
