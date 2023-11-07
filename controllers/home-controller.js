@@ -32,25 +32,26 @@ router.get('/', async (req, res) =>
 
 //GET route to view a specific blog post
 //==============================================================
-router.get('/blog-post/:id', loggedInAuth, async (req, res) =>
+router.get('/blog-post/:id', async (req, res) =>
 {
-    try
-		{
-			const blogPostData = await Post.findByPk(req.params.id, {include: [{model: Comment}]});
-			const blogPost = blogPostData.get({plain: true});
+	try
+	{
+		const blogPostData = await Post.findByPk(req.params.id, {include: [{model: Comment}]});
+		const blogPost = blogPostData.get({plain: true});
 
-			console.log(blogPost);
+		console.log(blogPost);
 
-			res.status(200).render('topic',
-			{
-				blogPost,
-				loggedIn: req.session.logged_in,
-			});
-    }
-		catch (err)
+		const {title, text, date, user_name, comments} = blogPost;
+
+		res.status(200).render('post',
 		{
-			res.status(500).json(err);
-    }
+			title, text, date, user_name, comments, logged_in: req.session.logged_in,
+		});
+	}
+	catch (err)
+	{
+		res.status(500).json(err);
+	}
 });
 //==============================================================
 
@@ -58,7 +59,7 @@ router.get('/blog-post/:id', loggedInAuth, async (req, res) =>
 //==============================================================
 router.get('/login', (req, res) =>
 {
-	if (req.session.loggedIn)
+	if (req.session.logged_in)
 	{
 		res.redirect('/');
 		return;

@@ -20,7 +20,7 @@ router.get('/', loggedInAuth, async (req, res) =>
 		});
 		const posts = postData.map((post) => post.get({plain: true}));
 
-		console.log(postData);
+		console.log(posts);
 
 		res.status(200).render('dashboard',
 		{
@@ -44,11 +44,11 @@ router.get('/edit/:id', loggedInAuth, userIDAuth, async (req, res) =>
 	const blogPost = blogPostData.get({plain: true});
 
 	console.log(blogPostData);
+	const {title} = blogPost;
 
 	res.render('new-post',
 	{
-		blogPost,
-		loggedIn: req.session.loggedIn
+		title, logged_in: req.session.logged_in,
 	});
 });
 //==============================================================
