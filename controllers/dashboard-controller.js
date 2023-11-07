@@ -48,7 +48,7 @@ router.get('/edit/:id', loggedInAuth, userIDAuth, async (req, res) =>
 
 	res.render('new-post',
 	{
-		title, logged_in: req.session.logged_in,
+		title, logged_in: req.session.logged_in, edit: true,
 	});
 });
 //==============================================================
