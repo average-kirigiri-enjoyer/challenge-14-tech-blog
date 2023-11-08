@@ -15,6 +15,7 @@ const signupPassword = $(".signup-container").children(".password");
 //=========================================================
 const errorModal = (error) =>
 {
+	console.log(error);
 	let errorDetails;
 
 	//adds additional error details for specific error messages
@@ -27,8 +28,10 @@ const errorModal = (error) =>
 		errorDetails = error;
 	}
 
+	console.log(errorDetails);
+
 	modal.attr("style", "display: block");
-	modalMessage.text(`Error: ${errorDetails}`);
+	modalMessage.text(errorDetails);
 };
 // =========================================================
 
@@ -47,25 +50,33 @@ const login = async () =>
 
 	try
 	{
-		await fetch("/api/users/login",
+		const response = await fetch("/api/users/login",
 		{
 			method: "POST",
 			body: JSON.stringify({username, password}),
 			headers: {"Content-Type": "application/json"},
 		});
 
-		document.location.href = "/";
+		if (response.ok)
+		{
+			window.location.pathname = "/";
+		}
+		else
+		{
+			const error = await response.json();
+			errorModal(error.name);
+		}
 	}
 	catch (err)
 	{
-		errorModal(JSON.parse(err));
+		errorModal(err);
 	}
 };
 
 const signup = async () =>
 {
 	const username = signupUsername.val().trim();
-	const password = signupPassword.val().trim();;
+	const password = signupPassword.val().trim();
 
 	if (!username || !password)
 	{
@@ -75,21 +86,29 @@ const signup = async () =>
 
 	try
 	{
-		await fetch("/api/users/signup",
+		const response = await fetch("/api/users/signup",
 		{
 			method: "POST",
 			body: JSON.stringify({username, password}),
 			headers: {"Content-Type": "application/json"},
 		});
 
-		document.location.href = "/";
+		if (!response.ok)
+		{
+			window.location.pathname = "/";
+		}
+		else
+		{
+			const error = await response.json();
+			errorModal(error.name);
+		}
 	}
 	catch (err)
 	{
-		errorModal(JSON.parse(err));
+		errorModal(err);
 	}
 };
-// =========================================================
+//=========================================================
 
 //adding event listeners
 //=========================================================
@@ -98,7 +117,7 @@ signupButton.on("click", signup);
 closeModalButton.on("click", () => {modal.attr("style", "display: none")});
 $(window).on("click", (event) =>
 {
-	if (event.target === modal)
+	if (event.target === modal[0])
 	{
 		modal.attr("style", "display: none");
 	}

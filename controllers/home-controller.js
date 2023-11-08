@@ -13,9 +13,9 @@ router.get('/', async (req, res) =>
 	{
 		const postData = await Post.findAll();
 
-		console.log(postData);
 		const posts = postData.map((post) => post.get({plain: true}));
-		console.log(posts);
+
+		console.log(req.session.logged_in);
 
 		res.status(200).render('homepage',
 		{

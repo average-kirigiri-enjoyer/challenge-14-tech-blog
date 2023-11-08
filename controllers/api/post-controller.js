@@ -57,6 +57,7 @@ router.post('/comment/:id', loggedInAuth, async (req, res) =>
 		{
 			text: req.body.text,
 			date: Date.now(),
+			user_name: req.session.user_name,
 			user_id: req.session.user_id,
 			post_id: req.params.id,
 		});

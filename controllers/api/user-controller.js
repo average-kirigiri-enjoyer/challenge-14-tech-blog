@@ -16,6 +16,7 @@ router.post('/signup', async (req, res) =>
 		req.session.save(() =>
 		{
 			req.session.logged_in = true;
+			req.session.user_name = userData.username;
 			req.session.user_id = userData.id;
 			res.status(200).redirect('/');
 		});
@@ -37,7 +38,7 @@ router.post('/login', async (req, res) =>
 
 		if (!userData)
 		{
-			res.status(400).json({message: 'Invalid username or password'});
+			res.status(400).json({name: 'Invalid username or password'});
 			return;
 		}
 
@@ -45,16 +46,19 @@ router.post('/login', async (req, res) =>
 
 		if (!passwordValid)
 		{
-			res.status(400).json({message: 'Invalid email or password',});
+			res.status(400).json({name: 'Invalid email or password',});
 			return;
 		}
 
 		req.session.save(() =>
 		{
 			req.session.logged_in = true;
+			req.session.user_name = userData.username;
 			req.session.user_id = userData.id;
 			res.status(200).redirect('/');
 		});
+
+		console.log(req.session.logged_in);	
 	}
 	catch (err)
 	{
@@ -69,14 +73,12 @@ router.get('/logout', (req, res) =>
 {
 	if (req.session.logged_in)
 	{
-		req.session.destroy(() =>
-		{
-			res.status(202).redirect('/');
-		});
+		req.session.destroy();
+		res.status(200).redirect('/');
 	}
 	else
 	{
-		res.status(404).json({message: 'Error logging out'});
+		res.status(404).json({name: 'Error logging out'});
 	}
 });
 //==============================================================
