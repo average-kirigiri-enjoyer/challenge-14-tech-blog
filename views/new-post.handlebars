@@ -4,16 +4,18 @@
   <input class = "post-title-input" value = "{{title}}">
 
   <h2>Content</h2>
-  <textarea class = "post-content-input" value = "{{text}}"></textarea>
+  <textarea class = "post-content-input">{{text}}</textarea>
 
   {{#if edit}}
 
     <button class = "update-post-button">Update Post</button>
     <button class = "delete-post-button">Delete Post</button>
+    <script src = "/js/edit-post.js"></script>
 
   {{else}}
 
     <button class = "upload-post-button">Create Post</button>
+    <script src = "/js/create-post.js"></script>
 
   {{/if}}
 

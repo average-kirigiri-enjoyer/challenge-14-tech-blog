@@ -16,12 +16,13 @@ router.post('/', loggedInAuth, async (req, res) =>
 			title: req.body.title,
 			text: req.body.text,
 			date: Date.now(),
+			user_name: req.session.user_name,
 			user_id: req.session.user_id,
 		});
 
 		console.log(newPost);
 
-		res.status(200).redirect(`/blog-post/${newPost.id}`);
+		res.status(200).json(newPost);
 	}
 	catch (err)
 	{
@@ -35,7 +36,18 @@ router.post('/', loggedInAuth, async (req, res) =>
 //==============================================================
 router.put('/:id', loggedInAuth, userIDAuth, async (req, res) =>
 {
+	try
+	{
+		const updatedPost = await Post.update(req.body, {where: {id: req.params.id}});
+		console.log(updatedPost);
 
+		res.status(200).json(updatedPost);
+	}
+	catch (err)
+	{
+		console.log(err);
+		res.status(500).json(err);
+	}
 });
 //==============================================================
 
@@ -43,7 +55,16 @@ router.put('/:id', loggedInAuth, userIDAuth, async (req, res) =>
 //==============================================================
 router.delete('/:id', loggedInAuth, userIDAuth, async (req, res) =>
 {
-
+	try
+	{
+		await Post.destroy({where: {id: req.params.id}});
+		res.status(200).json({name: "Post Deleted"});
+	}
+	catch (err)
+	{
+		console.log(err);
+		res.status(500).json(err);
+	}
 });
 //==============================================================
 
@@ -64,7 +85,7 @@ router.post('/comment/:id', loggedInAuth, async (req, res) =>
 
 		console.log(newComment);
 
-		res.status(200).redirect(`/blog-post/${newComment.post_id}`);
+		res.status(200).json(newComment);
 	}
 	catch (err)
 	{

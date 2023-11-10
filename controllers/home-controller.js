@@ -2,7 +2,6 @@
 //==============================================================
 const router = require('express').Router();
 const {Post, Comment} = require('../models');
-const loggedInAuth = require('../utils/loggedInAuth');
 //==============================================================
 
 //GET route to render the blog's home page
@@ -15,7 +14,7 @@ router.get('/', async (req, res) =>
 
 		const posts = postData.map((post) => post.get({plain: true}));
 
-		console.log(req.session.logged_in);
+		console.log(posts);
 
 		res.status(200).render('homepage',
 		{
