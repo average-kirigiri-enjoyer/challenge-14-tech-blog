@@ -1,22 +1,28 @@
 <div class = "header-container">
 
-	<div class = "header-links">
+	<div class = "header-content container">
 
-		<a href = "/">Home</a>
-		<a href = "/dashboard">Dashboard</a>
+		<div class = "header-links">
 
-		{{#if logged_in}}
+			<a href = "/">Home</a>
+			<a href = "/dashboard">Dashboard</a>
 
-			<a href = "/api/users/logout">Log Out</a>
+			{{#if logged_in}}
 
-		{{else}}
+				<a href = "/api/users/logout">Log Out</a>
 
-			<a href = "/login">Log In / Sign Up</a>
-			
-		{{/if}}
+			{{else}}
 
+				<a href = "/login">Log In / Sign Up</a>
+				
+			{{/if}}
+
+		</div>
+
+		<div class = "header-title-container">
+
+			<h1 class = "header-title">The Tech Blog</h1>
+
+		</div>
 	</div>
-
-	<h1 class = "header-title">The Tech Blog</h1>
-
 </div>

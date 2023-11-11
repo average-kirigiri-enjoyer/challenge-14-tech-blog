@@ -18,7 +18,7 @@ router.post('/signup', async (req, res) =>
 			req.session.logged_in = true;
 			req.session.user_name = userData.username;
 			req.session.user_id = userData.id;
-			res.status(200).redirect('/');
+			res.status(200).json(userData);
 		});
 	}
 	catch (err) 
@@ -55,7 +55,7 @@ router.post('/login', async (req, res) =>
 			req.session.logged_in = true;
 			req.session.user_name = userData.username;
 			req.session.user_id = userData.id;
-			res.status(200).redirect('/');
+			res.status(200).json(userData);
 		});
 
 		console.log(req.session.logged_in);	

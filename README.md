@@ -9,6 +9,12 @@ https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba
 Error Modal Setup;
 https://www.w3schools.com/howto/howto_css_modals.asp
 
+normalize.css file (./public/css/normalize.css);
+https://github.com/necolas/normalize.css
+
+skeleton.css file (./public/css/skeleton.css);
+http://getskeleton.com/
+
 Miscellaneous Code Structure;
 https://github.com/UofTTeam2/TravIS
 

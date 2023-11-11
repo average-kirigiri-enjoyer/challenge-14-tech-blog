@@ -1,12 +1,15 @@
-<div class = "view-post-container">
+<div class = "view-post-container container">
 
-  {{> post-details}}
-  
+  <div class = "view-post-content column">
+
+    {{> post-details}}
+    
+  </div>
 </div>
 
 {{#if logged_in}}
 
-  <div class = "create-comment-container">
+  <div class = "create-comment-container container">
     
     <h2>Comment</h2>
     <textarea class = "create-comment-text"></textarea>
@@ -18,7 +21,7 @@
 
 {{/if}}
 
-<div class = "comment-list-container">
+<div class = "comment-list-container container">
 
   {{#each comments as |comment|}}
     {{> comment-details}}

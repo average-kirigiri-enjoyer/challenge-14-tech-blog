@@ -1,0 +1,222 @@
+/* ---------- general element styles ---------- */
+:root
+{
+  --desaturated-indigo: #292640; /* main element accent colour */
+  --light-ds-indigo: #514b80; /* highlight colour (e.g. button hover) */
+  --lighter-ds-indigo: #7a71bf; /* strong highlight colour (e.g. input focus) */
+	--lightest-ds-indigo: #e5e7ff; /* title / bright constrast colour */
+}
+
+*
+{
+	margin: 0;
+	padding: 0;
+	color: var(--desaturated-indigo);
+	word-wrap: break-word;
+	box-sizing: border-box;
+	font-family: 'Raleway';
+}
+
+body
+{
+	background-color: var(--lightest-ds-indigo);
+}
+
+button
+{
+	color: var(--lightest-ds-indigo);
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+	background-color: var(--desaturated-indigo);
+}
+
+button:hover
+{
+	transition: 0.3s;
+	background-color: var(--lighter-ds-indigo);
+}
+
+/* ---------- website header ---------- */
+
+.header-container
+{
+	background-color: var(--desaturated-indigo);
+	color: var(--lightest-ds-indigo);
+}
+
+.header-links
+{
+	padding: 20px 0px 10px;
+	margin-left: -10px;
+	font-size: 20px;
+}
+
+.header-links > a
+{
+	padding: 12px 20px;
+	margin-right: 5px;
+	background-color: #292640;
+	color: var(--lightest-ds-indigo);
+}
+
+.header-links > a:hover
+{
+	transition: 0.3s;
+	color: var(--lighter-ds-indigo);
+}
+
+.header-title-container
+{
+	display: inline-block;
+	margin: 10px 0px 20px;
+	padding: 10px 20px;
+	border-radius: 5px;
+	color: var(--desaturated-indigo);
+	background-color: var(--lightest-ds-indigo);
+}
+
+.header-title
+{
+	margin-bottom: 0px;
+	font-weight: bold;
+}
+
+/* ---------- homepage, post details, & comments ---------- */
+
+.home-post-link, .view-post-content
+{
+	display: inline-block;
+	margin-top: 20px;
+	margin-left: 0px;
+	border-radius: 5px;
+	text-decoration: none;
+	border: 3px solid var(--desaturated-indigo);
+}
+
+.home-post-title-container
+{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: var(--desaturated-indigo);
+}
+
+.home-post-title-container > *
+{
+	color: var(--lightest-ds-indigo);
+}
+
+.home-post-title-container > h2
+{
+	font-size: 30px;
+	padding: 7px 15px 10px;
+}
+
+.home-post-title-container > p
+{
+	font-size: 14px;
+	padding: 0px 15px 3px;
+}
+
+.home-post-text-container
+{
+	color: var(--desaturated-indigo);
+	font-size: 18px;
+	padding: 5px 15px;
+}
+
+/* ---------- comments ---------- */
+
+.create-comment-container > h2
+{
+	margin: 10px 0px;
+	font-size: 24px;
+}
+
+.create-comment-text
+{
+	width: 100%;
+	height: 100px;
+	resize: vertical;
+}
+
+.add-comment-button
+{
+	margin: 10px 0px;
+	font-size: 16px;
+	padding: 7px 12px;
+}
+
+.individual-comment-container
+{
+	border: 3px solid var(--desaturated-indigo);
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+
+.individual-comment-container > p
+{
+	font-size: 16px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.comment-text
+{
+	padding-top: 10px;
+}
+
+.comment-author
+{
+	padding-top: 5px;
+	padding-bottom: 10px;
+}
+
+/* ---------- error modal ---------- */
+
+.modal
+{
+	display: none;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content
+{
+	text-align: center;
+	background-color: #fefefe;
+	margin: 15% auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 50%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.modal-content p
+{
+	margin-bottom: 0px;
+}
+
+.close
+{
+	position: absolute;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover, .close:focus
+{
+	color: red;
+	cursor: pointer;
+}
+
+.login-modal-close-container
+{
+	position: relative;
+}
