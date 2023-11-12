@@ -94,6 +94,11 @@ button:hover
 	border: 3px solid var(--desaturated-indigo);
 }
 
+.view-post-content
+{
+	margin-bottom: 10px;
+}
+
 .home-post-title-container
 {
 	display: flex;
@@ -130,7 +135,7 @@ button:hover
 
 .create-comment-container > h2
 {
-	margin: 10px 0px;
+	margin-bottom: 10px;
 	font-size: 24px;
 }
 
@@ -173,12 +178,62 @@ button:hover
 	padding-bottom: 10px;
 }
 
+/* ---------- login / signup page ---------- */
+
+.login-signup-container
+{
+	margin-top: 20px;
+}
+
+.login-signup-container > div
+{
+	border: solid 3px var(--desaturated-indigo);
+	border-radius: 5px;
+}
+
+.signup-container, .login-container 
+{
+	display: inline-block;
+}
+
+.account-details-type
+{
+	background-color: var(--desaturated-indigo);
+}
+
+.account-details-type > p
+{
+	color: var(--lightest-ds-indigo);
+	font-size: 24px;
+	padding: 0px 0px 4px 10px;
+}
+
+.account-details-container > input
+{
+	font-size: 18px;
+	width: 98%;
+	margin: 5px 1% 0px;
+}
+
+.account-details-container > input:focus
+{
+	border-color: var(--lighter-ds-indigo);
+}
+
+.account-details-container > button
+{
+	font-size: 16px;
+	padding: 7px 12px;
+	margin: 5px 1%;
+}
+
 /* ---------- error modal ---------- */
 
 .modal
 {
 	display: none;
 	position: fixed;
+	z-index: 1;
 	left: 0;
 	top: 0;
 	width: 100%;
@@ -206,6 +261,8 @@ button:hover
 .close
 {
 	position: absolute;
+	top: -30px;
+	right: -12px;
 	font-size: 28px;
 	font-weight: bold;
 }
@@ -216,7 +273,7 @@ button:hover
 	cursor: pointer;
 }
 
-.login-modal-close-container
+.modal-close-container
 {
 	position: relative;
 }

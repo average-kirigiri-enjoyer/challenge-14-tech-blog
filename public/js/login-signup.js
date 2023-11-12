@@ -2,13 +2,13 @@
 //==============================================================
 const modal = $(".modal");
 const modalMessage = $(".modalMessage");
-const closeModalButton = $(".closeModal");
+const closeModalButton = $(".close");
 const loginButton = $(".login-button");
 const signupButton = $(".signup-button");
-const loginUsername = $(".login-container").children(".username");
-const loginPassword = $(".login-container").children(".password");
-const signupUsername = $(".signup-container").children(".username");
-const signupPassword = $(".signup-container").children(".password");
+const loginUsername = $(".login.username");
+const loginPassword = $(".login.password");
+const signupUsername = $(".signup.username");
+const signupPassword = $(".signup.password");
 //==============================================================
 
 //function to display an error modal with a message
@@ -44,7 +44,7 @@ const login = async () =>
 
 	if (!username || !password)
 	{
-		errorModal("Enter a username & a password");
+		errorModal("Enter a username and a password");
 		return;
 	}
 
@@ -80,7 +80,7 @@ const signup = async () =>
 
 	if (!username || !password)
 	{
-		errorModal("Enter a username & a password");
+		errorModal("Enter a username and a password");
 		return;
 	}
 
@@ -93,7 +93,7 @@ const signup = async () =>
 			headers: {"Content-Type": "application/json"},
 		});
 
-		if (!response.ok)
+		if (response.ok)
 		{
 			window.location.pathname = "/";
 		}
