@@ -224,7 +224,46 @@ button:hover
 {
 	font-size: 16px;
 	padding: 7px 12px;
-	margin: 5px 1%;
+	margin: 5px;
+}
+
+/* ---------- dashboard ---------- */
+
+.dashboard-posts-list-container > a
+{
+	text-decoration: none;
+	display: inline-block;
+	font-size: 24px;
+	width: 100%;
+}
+
+.dashboard-post-details
+{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 10px;
+	border-radius: 5px;
+	background-color: var(--desaturated-indigo);
+}
+
+.dashboard-post-details:hover
+{
+	transition: 0.3s;
+	background-color: var(--lighter-ds-indigo);
+}
+
+
+.dashboard-post-details > p
+{
+	color: var(--lightest-ds-indigo);
+	padding: 3px 10px;
+}
+
+.start-new-post-button
+{
+	font-size: 24px;
+	margin-top: 10px;
+	padding: 8px 12px;
 }
 
 /* ---------- error modal ---------- */
