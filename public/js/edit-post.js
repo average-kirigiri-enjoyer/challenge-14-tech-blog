@@ -10,19 +10,22 @@ const deletePostButton = $('.delete-post-button');
 //==============================================================
 const updatePost = async () =>
 {
+  //retrieves post title & text from the appropriate inputs
   const title = postTitleInput.val();
   const text = postContentInput.val();
 
+  //if the post is missing a title or content, eject from the function
   if (!title || !text)
   {
     return;
   }
 
+  //retrieves post ID from browser path
   const postID = window.location.pathname.split("/")[3];
-  console.log(postID);
 
   try
 	{
+    //sends post data to the server via a PUT request to update the post with the appropriate ID
     const response = await fetch(`/api/blog-post/${postID}`,
     {
       method: "PUT",
@@ -30,17 +33,18 @@ const updatePost = async () =>
       headers: {"Content-Type": "application/json"},
     });
 
+    //if the post was successfully updated, return the user to the dashboard
     if (response.ok)
 		{
 			window.location.pathname = "/dashboard";
 		}
-		else
+		else //if there was an error, log it to the console
 		{
 			const error = await response.json();
 			console.log(error.name);
 		}
   }
-  catch (err)
+  catch (err) //if an error occurs, log it to the console
   {
     console.log(err);
   }
@@ -51,24 +55,26 @@ const updatePost = async () =>
 //==============================================================
 const deletePost = async () =>
 {
+  //retrieves post ID from browser path
   const postID = window.location.pathname.split("/")[3];
-  console.log(postID);
 
   try
 	{
+    //sends a request to the server to delete the blog post with the appropriate ID
     const response = await fetch(`/api/blog-post/${postID}`, {method: "DELETE"});
 
+    //if the post was successfully deleted, return the user to the dashboard
     if (response.ok)
 		{
 			window.location.pathname = "/dashboard";
 		}
-		else
+		else //if there was an error, log it to the console
 		{
 			const error = await response.json();
 			console.log(error.name);
 		}
   }
-  catch (err)
+  catch (err) //if an error occurs, log it to the console
   {
     console.log(err);
   }

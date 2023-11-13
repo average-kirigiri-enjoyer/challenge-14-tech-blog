@@ -8,13 +8,15 @@ const addCommentButton = $('.add-comment-button');
 //==============================================================
 const addComment = async () =>
 {
+  //retrieves post ID from browser path
   const postID = window.location.pathname.split("/")[2];
-  console.log(postID);
 
+  //retrieves comment text from comment text box
   const text = commentTextBox.val();
 
   try
 	{
+    //sends comment text to server via a POST request to create a new comment under the appropriate post using the post's ID
     const response = await fetch(`/api/blog-post/comment/${postID}`,
     {
       method: "POST",
@@ -22,17 +24,18 @@ const addComment = async () =>
       headers: {"Content-Type": "application/json"},
     });
 
+    //if the comment was successfully posted, refresh the page to show the new comment
     if (response.ok)
 		{
 			window.location.pathname = `/blog-post/${postID}`;
 		}
-		else
+		else //otherwise, log the error to the console
 		{
 			const error = await response.json();
 			console.log(error.name);
 		}
   }
-  catch (err)
+  catch (err) //if an error occured, log it to the console
   {
     console.log(err);
   }

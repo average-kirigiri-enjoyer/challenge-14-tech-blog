@@ -7,21 +7,24 @@
 	--lightest-ds-indigo: #e5e7ff; /* title / bright constrast colour */
 }
 
+/* sets default text colour, word-wrap settings, & font */
 *
 {
 	margin: 0;
 	padding: 0;
-	color: var(--desaturated-indigo);
+	color: var(--desaturated-indigo); 
 	word-wrap: break-word;
 	box-sizing: border-box;
 	font-family: 'Raleway';
 }
 
+/* sets page background colour */
 body
 {
 	background-color: var(--lightest-ds-indigo);
 }
 
+/* defines default button styles */
 button
 {
 	color: var(--lightest-ds-indigo);
@@ -31,6 +34,7 @@ button
 	background-color: var(--desaturated-indigo);
 }
 
+/* sets buttons to change their background colour when hovered */
 button:hover
 {
 	transition: 0.3s;
@@ -39,32 +43,36 @@ button:hover
 
 /* ---------- website header ---------- */
 
+/* sets text & background colour for website header */
 .header-container
 {
 	background-color: var(--desaturated-indigo);
 	color: var(--lightest-ds-indigo);
 }
 
+/* defines spacing & font size for header links container */
 .header-links
 {
 	padding: 20px 0px 10px;
-	margin-left: -10px;
+	margin-left: -20px;
 	font-size: 20px;
 }
 
+/* sets margin & text colour for individual header links */
 .header-links > a
 {
 	margin-left: 25px;
-	background-color: #292640;
 	color: var(--lightest-ds-indigo);
 }
 
+/* sets header links to change colour when hovered */
 .header-links > a:hover
 {
 	transition: 0.3s;
 	color: var(--lighter-ds-indigo);
 }
 
+/* sets website title container to be displayed as a curved box with an inverted colour scheme to the rest of the header */
 .header-title-container
 {
 	display: inline-block;
@@ -75,6 +83,7 @@ button:hover
 	background-color: var(--lightest-ds-indigo);
 }
 
+/* makes website title text bold */
 .header-title
 {
 	margin-bottom: 0px;
@@ -83,6 +92,7 @@ button:hover
 
 /* ---------- homepage, post details, & comments ---------- */
 
+/* defines display settings for blog post details */
 .home-post-link, .view-post-content
 {
 	display: inline-block;
@@ -93,11 +103,13 @@ button:hover
 	border: 3px solid var(--desaturated-indigo);
 }
 
+/* adds a small margin to the bottom of the post details when viewing a post's dedicated page */
 .view-post-content
 {
 	margin-bottom: 10px;
 }
 
+/* places blog post title & date / author information on opposite ends of the header box, and sets the background colour */
 .home-post-title-container
 {
 	display: flex;
@@ -106,23 +118,27 @@ button:hover
 	background-color: var(--desaturated-indigo);
 }
 
+/* changes the text colour of each blog post's title & date / author information to contrast with the header background */
 .home-post-title-container > *
 {
 	color: var(--lightest-ds-indigo);
 }
 
+/* sets font size & spacing for blog post title */
 .home-post-title-container > h2
 {
 	font-size: 30px;
 	padding: 7px 15px 10px;
 }
 
+/* sets font size & spacing for blog post date / author information */
 .home-post-title-container > p
 {
 	font-size: 14px;
 	padding: 0px 15px 3px;
 }
 
+/* defines display settings for blog post content */
 .home-post-text-container
 {
 	color: var(--desaturated-indigo);
@@ -132,12 +148,14 @@ button:hover
 
 /* ---------- comments ---------- */
 
+/* sets font size & adds a margin to 'Comment' header above the comment creation box */
 .create-comment-container > h2
 {
 	margin-bottom: 10px;
 	font-size: 24px;
 }
 
+/* sets height & width of comment creation text box, and only allows vertical resizing */
 .create-comment-text
 {
 	width: 100%;
@@ -145,6 +163,13 @@ button:hover
 	resize: vertical;
 }
 
+/* sets focus colour for comment creation box */
+.create-comment-text:focus
+{
+	border-color: var(--lighter-ds-indigo);
+}
+
+/* defines font size & spacing of the add comment button */
 .add-comment-button
 {
 	margin: 10px 0px;
@@ -152,6 +177,7 @@ button:hover
 	padding: 7px 12px;
 }
 
+/* defines border & spacing for each comment box */
 .individual-comment-container
 {
 	border: 3px solid var(--desaturated-indigo);
@@ -159,6 +185,7 @@ button:hover
 	margin-bottom: 10px;
 }
 
+/* defines font size & spacing for comment text elements */
 .individual-comment-container > p
 {
 	font-size: 16px;
@@ -166,11 +193,13 @@ button:hover
 	padding-right: 15px;
 }
 
+/* adds a small gap above each comment's text */
 .comment-text
 {
 	padding-top: 10px;
 }
 
+/* adds a small gap above & below each comment's author / date information */
 .comment-author
 {
 	padding-top: 5px;
@@ -179,27 +208,32 @@ button:hover
 
 /* ---------- login / signup page ---------- */
 
+/* adds a gap above the login / signup container */
 .login-signup-container
 {
 	margin-top: 20px;
 }
 
+/* adds a border to the login & signup containers */
 .login-signup-container > div
 {
 	border: solid 3px var(--desaturated-indigo);
 	border-radius: 5px;
 }
 
+/* displays the login & signup containers side-by-side */
 .signup-container, .login-container 
 {
 	display: inline-block;
 }
 
+/* sets background colour of login & signup container headers */
 .account-details-type
 {
 	background-color: var(--desaturated-indigo);
 }
 
+/* sets 'Log In' & 'Sign Up' headers to contrast with their backgrounds, and sets font size & spacing */
 .account-details-type > p
 {
 	color: var(--lightest-ds-indigo);
@@ -207,6 +241,7 @@ button:hover
 	padding: 0px 0px 4px 10px;
 }
 
+/* sets font size & spacing for username & password inputs */
 .account-details-container > input
 {
 	font-size: 18px;
@@ -214,11 +249,13 @@ button:hover
 	margin: 5px 1% 0px;
 }
 
+/* sets focus colour for username & password inputs */
 .account-details-container > input:focus
 {
 	border-color: var(--lighter-ds-indigo);
 }
 
+/* sets font size & spacing for login & sign up buttons */
 .account-details-container > button
 {
 	font-size: 16px;
@@ -228,6 +265,7 @@ button:hover
 
 /* ---------- dashboard ---------- */
 
+/* defines appearance for links to a user's posts on the dashboard */
 .dashboard-posts-list-container > a
 {
 	text-decoration: none;
@@ -236,6 +274,7 @@ button:hover
 	width: 100%;
 }
 
+/* places blog post title & date information on opposite ends of each dashboard post link, and sets background colour */
 .dashboard-post-details
 {
 	display: flex;
@@ -245,19 +284,21 @@ button:hover
 	background-color: var(--desaturated-indigo);
 }
 
+/* sets hover colour for dashboard post links */
 .dashboard-post-details:hover
 {
 	transition: 0.3s;
 	background-color: var(--lighter-ds-indigo);
 }
 
-
+/* sets text colour for dashboard post links to contrast with the background colour */
 .dashboard-post-details > p
 {
 	color: var(--lightest-ds-indigo);
 	padding: 3px 10px;
 }
 
+/* sets font size & spacing for the 'New Post' button */
 .start-new-post-button
 {
 	font-size: 24px;
@@ -267,6 +308,7 @@ button:hover
 
 /* ---------- post creation / edit page ---------- */
 
+/* adds a border and small margin to the post creation container */
 .create-new-post-container
 {
 	border: solid 3px var(--desaturated-indigo);
@@ -274,6 +316,7 @@ button:hover
 	margin-top: 10px;
 }
 
+/* sets the width & spacing of the title & text inputs for a post, and the following buttons */
 .create-new-post-container > input,
 .create-new-post-container > textarea,
 .create-new-post-container > button
@@ -282,52 +325,62 @@ button:hover
 	margin: 0px 1% 10px;
 }
 
+/* sets focus colour for post title & content inputs */
+.create-new-post-container > input:focus,
+.create-new-post-container > textarea:focus
+{
+	border-color: var(--lighter-ds-indigo);
+}
+
+/* removes bottom margin from the post's title input */
 .create-new-post-container > input
 {
 	margin-bottom: 0px;
 }
 
-.create-new-post-container > textarea
-{
-	font-size: 18px;
-}
-
+/* adds a slight margin to the 'title' and 'content' section headers of the post creation container */
 .create-new-post-container > h3
 {
 	margin-left: 1%;
 }
 
+/* sets font size & padding for post creation container buttons */
 .create-new-post-container > button
 {
 	font-size: 20px;
 	padding: 10px;
 }
 
+/* sets background colour for post creation header */
 .dashboard-post-details-header
 {
 	background-color: var(--desaturated-indigo);
 }
 
+/* sets text colour & spacing for post creation header */
 .dashboard-post-details-header > h2
 {
 	padding-left: 10px;
 	color: var(--lightest-ds-indigo);
 }
 
+/* sets font size for post title input */
 .post-title-input
 {
 	font-size: 30px;
 }
 
+/* sets font size & height of post content text box, and only allows vertical resizing */
 .post-content-input
 {
-	font-size: 16px;
+	font-size: 18px;
 	height: 100px;
 	resize: vertical;
 }
 
 /* ---------- error modal ---------- */
 
+/* sets error modal to take up the entire page, with a transluscent black background, overlaid over the rest of the page's content */
 .modal
 {
 	display: none;
@@ -341,6 +394,7 @@ button:hover
 	background-color: rgba(0, 0, 0, 0.7);
 }
 
+/* sets modal content box appearance and spacing */
 .modal-content
 {
 	text-align: center;
@@ -352,11 +406,7 @@ button:hover
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.modal-content p
-{
-	margin-bottom: 0px;
-}
-
+/* sets position & appearance of modal close button */
 .close
 {
 	position: absolute;
@@ -364,14 +414,17 @@ button:hover
 	right: -12px;
 	font-size: 28px;
 	font-weight: bold;
-}
-
-.close:hover, .close:focus
-{
-	color: red;
 	cursor: pointer;
 }
 
+/* sets hover colour for modal close button */
+.close:hover
+{
+	transition: 0.3s;
+	color: red;
+}
+
+/* sets modal close container's position to be relative */
 .modal-close-container
 {
 	position: relative;

@@ -2,7 +2,7 @@
 ethan (average-kirigiri-enjoyer)
 SCS Boot Camp Module 14 Weekly Challenge - Tech Blog
 Created 2023/11/03
-Last Edited 2023/11/04
+Last Edited 2023/11/13
 */
 
 //importing packages & other files necessary for the application

@@ -1,6 +1,7 @@
 //imports comment model
 const {Comment} = require('../models');
 
+//defines sample comment data
 const commentData =
 [
 	{

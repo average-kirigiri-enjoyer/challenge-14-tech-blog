@@ -15,21 +15,19 @@ const signupPassword = $(".signup.password");
 //=========================================================
 const errorModal = (error) =>
 {
-	console.log(error);
-	let errorDetails;
+	let errorDetails; //variable to hold error details
 
-	//adds additional error details for specific error messages
+	//if the provided error is as follows, set the error details appropriately
 	if (error === "SequelizeUniqueConstraintError")
 	{
 		errorDetails = "Your chosen username is already in use.";
 	}
-	else
+	else //otherwise, set the error details to the provided error message
 	{
 		errorDetails = error;
 	}
 
-	console.log(errorDetails);
-
+	//display the modal to the page, and adjust the error message to the above error details
 	modal.attr("style", "display: block");
 	modalMessage.text(errorDetails);
 };
@@ -39,9 +37,11 @@ const errorModal = (error) =>
 //=========================================================
 const login = async () =>
 {
+	//retrieves username & password from the appropriate inputs
 	const username = loginUsername.val().trim();
 	const password = loginPassword.val().trim();
 
+	//if the user didn't provide both a username & a password, display the error modal with a message informing them as such, and eject from the function
 	if (!username || !password)
 	{
 		errorModal("Enter a username and a password");
@@ -50,6 +50,7 @@ const login = async () =>
 
 	try
 	{
+		//sends username & password data to server via a POST request to attempt to log in
 		const response = await fetch("/api/users/login",
 		{
 			method: "POST",
@@ -57,17 +58,18 @@ const login = async () =>
 			headers: {"Content-Type": "application/json"},
 		});
 
+		//if the login request was accepted, return the user to the home page
 		if (response.ok)
 		{
 			window.location.pathname = "/";
 		}
-		else
+		else //if there was an error logging in, display an error modal containing the error message
 		{
 			const error = await response.json();
 			errorModal(error.name);
 		}
 	}
-	catch (err)
+	catch (err) //if an error occurs, display an error modal containing the error message
 	{
 		errorModal(err);
 	}
@@ -75,9 +77,11 @@ const login = async () =>
 
 const signup = async () =>
 {
+	//retrieves username & password from the appropriate inputs
 	const username = signupUsername.val().trim();
 	const password = signupPassword.val().trim();
 
+	//if the user didn't provide both a username & a password, display the error modal with a message informing them as such, and eject from the function
 	if (!username || !password)
 	{
 		errorModal("Enter a username and a password");
@@ -86,6 +90,7 @@ const signup = async () =>
 
 	try
 	{
+		//sends username & password data to server via a POST request to attempt to sign up
 		const response = await fetch("/api/users/signup",
 		{
 			method: "POST",
@@ -93,17 +98,18 @@ const signup = async () =>
 			headers: {"Content-Type": "application/json"},
 		});
 
+		//if the sign up request was successful, return the user to the home page
 		if (response.ok)
 		{
 			window.location.pathname = "/";
 		}
-		else
+		else //if there was an error signing up, display an error modal containing the error message
 		{
 			const error = await response.json();
 			errorModal(error.name);
 		}
 	}
-	catch (err)
+	catch (err) //if an error occurs, display an error modal containing the error message
 	{
 		errorModal(err);
 	}
@@ -114,7 +120,11 @@ const signup = async () =>
 //=========================================================
 loginButton.on("click", login);
 signupButton.on("click", signup);
+
+//upon clicking the close modal button, hide the error modal
 closeModalButton.on("click", () => {modal.attr("style", "display: none")});
+
+//if the user clicks outside the modal content, hide the error modal
 $(window).on("click", (event) =>
 {
 	if (event.target === modal[0])

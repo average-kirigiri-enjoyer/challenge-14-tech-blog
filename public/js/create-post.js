@@ -9,9 +9,11 @@ const uploadPostButton = $('.upload-post-button');
 //==============================================================
 const uploadPost = async () =>
 {
+  //retrieves post title & text from the appropriate inputs
   const title = postTitleInput.val();
   const text = postContentInput.val();
 
+  //if the post is missing a title or content, eject from the function
   if (!title || !text)
   {
     return;
@@ -19,6 +21,7 @@ const uploadPost = async () =>
 
   try
 	{
+    //sends the post title & text data to the server to create a new blog post
     const response = await fetch("/api/blog-post/",
     {
       method: "POST",
@@ -26,17 +29,18 @@ const uploadPost = async () =>
       headers: {"Content-Type": "application/json"},
     });
 
+    //if the post was successfully created, return the user to the dashboard
     if (response.ok)
 		{
 			window.location.pathname = "/dashboard";
 		}
-		else
+		else //if there was an error, log it to the console
 		{
 			const error = await response.json();
 			console.log(error.name);
 		}
   }
-  catch (err)
+  catch (err) //if an error occurs, log it to the console
   {
     console.log(err);
   }

@@ -1,14 +1,14 @@
 //imports sequelize model & datatypes, plus sequelize connection instance
-const {Model, DataTypes} = require('sequelize');
-const sequelize = require('../config/connection');
+const {Model, DataTypes} = require("sequelize");
+const sequelize = require("../config/connection");
 
 //imports bcrypt
-const bcrypt = require('bcrypt');
+const bcrypt = require("bcrypt");
 
 //extends user model from Model
 class User extends Model
 {
-	checkPassword(loginPassword) //method to compare hashed bcrypt passwords 
+	checkPassword(loginPassword) //method to compare hashed bcrypt passwords using the password associated with the user, and the one provided as an argument
 	{
 		return bcrypt.compareSync(loginPassword, this.password);
 	}
@@ -48,7 +48,7 @@ User.init(
 	sequelize,
 	timestamps: false,
 	freezeTableName: true,
-	modelName: 'user',
+	modelName: "user",
 });
 
 module.exports = User;

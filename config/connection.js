@@ -1,5 +1,5 @@
-const Sequelize = require('sequelize');
-require('dotenv').config();
+const Sequelize = require("sequelize");
+require("dotenv").config();
 
 let sequelize;
 
@@ -16,8 +16,8 @@ else //otherwise (i.e. the application is being run locally), use environmental 
 		process.env.DB_USER,
 		process.env.DB_PASSWORD,
 		{
-			host: 'localhost',
-			dialect: 'mysql',
+			host: "localhost",
+			dialect: "mysql",
 			port: 3306,
 		}
 	);
