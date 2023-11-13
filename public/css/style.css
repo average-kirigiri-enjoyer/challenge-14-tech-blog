@@ -54,8 +54,7 @@ button:hover
 
 .header-links > a
 {
-	padding: 12px 20px;
-	margin-right: 5px;
+	margin-left: 25px;
 	background-color: #292640;
 	color: var(--lightest-ds-indigo);
 }
@@ -264,6 +263,67 @@ button:hover
 	font-size: 24px;
 	margin-top: 10px;
 	padding: 8px 12px;
+}
+
+/* ---------- post creation / edit page ---------- */
+
+.create-new-post-container
+{
+	border: solid 3px var(--desaturated-indigo);
+	border-radius: 5px;
+	margin-top: 10px;
+}
+
+.create-new-post-container > input,
+.create-new-post-container > textarea,
+.create-new-post-container > button
+{
+	width: 98%;
+	margin: 0px 1% 10px;
+}
+
+.create-new-post-container > input
+{
+	margin-bottom: 0px;
+}
+
+.create-new-post-container > textarea
+{
+	font-size: 18px;
+}
+
+.create-new-post-container > h3
+{
+	margin-left: 1%;
+}
+
+.create-new-post-container > button
+{
+	font-size: 20px;
+	padding: 10px;
+}
+
+.dashboard-post-details-header
+{
+	background-color: var(--desaturated-indigo);
+}
+
+.dashboard-post-details-header > h2
+{
+	padding-left: 10px;
+	color: var(--lightest-ds-indigo);
+}
+
+.post-title-input
+{
+	font-size: 30px;
+}
+
+.post-content-input
+{
+	font-size: 16px;
+	height: 100px;
+	resize: vertical;
 }
 
 /* ---------- error modal ---------- */

@@ -1,10 +1,24 @@
 <div class = "create-new-post-container container">
 
-  <h2>Title</h2>
-  <input class = "post-title-input" value = "{{title}}">
+  <div class = "dashboard-post-details-header">
 
-  <h2>Content</h2>
-  <textarea class = "post-content-input">{{text}}</textarea>
+    {{#if edit}}
+
+      <h2>Edit Post</h2>
+
+    {{else}}
+
+      <h2>Create Post</h2>
+
+    {{/if}}
+
+  </div>
+
+  <h3>Title</h3>
+  <input class = "post-title-input column" value = "{{title}}">
+
+  <h3>Content</h3>
+  <textarea class = "post-content-input column">{{text}}</textarea>
 
   {{#if edit}}
 
