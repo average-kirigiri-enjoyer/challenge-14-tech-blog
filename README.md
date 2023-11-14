@@ -1,5 +1,30 @@
-# challenge-14-tech-blog
-weekly challenge for module 14; creating a tech blog website where users can make posts &amp; comments 
+# Module 14 Weekly Challenge - Tech Blog [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Description
+
+While your time working as a web developer will be spent - big surprise - developing websites, it's also important to keep on top of the latest news, trends, and technologies. To that end, this Tech Blog provides a hub for like-minded individuals to discuss said news, trends, and technologies.
+
+## Usage
+
+Visit the Tech Blog here;
+
+https://calm-ocean-31747-c91718f6c844.herokuapp.com/
+
+Upon opening the page, you will be met with the blog's home page, listing all the blog's posts, and a header, containing several links for site navigation. Click the Log In / Sign Up link to navigate to the login / signup page, where you can create an account. After creating an account, you will now be able to comment on blog posts, and access the dashboard page. From the dashboard page, you can create new posts, or edit / delete any existing posts you've made. After logging in, the Log In / Sign Up link will be replace by a Log Out link, which you can use to sign out of your account. Note that you will be automatically signed out after one hour.
+
+## Installation
+
+To run the application locally, begin by installing the repository files & extract them to a dedicated folder.
+
+Navigate to the folder, rename the ".env.EXAMPLE" file to ".env", and fill in the empty strings with the appropriate details. SESSION_SECRET should contain any secure string of your choice, DB_USER should contain your MySQL username, DB_PASSWORD your password, and DB_NAME the name of the database to use - in this case, it is already filled in for you; "tech_blog_db".
+
+Navigate to the repository a git bash shell (or equivalent), and type "npm install" to install the application's dependencies. Next, initiate the MySQL CLI & run the command "source ./db/schema.sql" to initialize the database. Finally, return to the shell and type "node server.js" or "npm start" to start the application. If you want to seed the database with some sample information, then you type "npm run seed" before starting the server.
+
+Next, open up a web browser and navigate to "http://localhost:3001/", where you should now find the home page of the application.
+
+## Preview
+
+![Preview of the Tech Blog home page](./public/images/challenge-14-website-preview.jpg)
 
 ## Credits
 

@@ -23,7 +23,7 @@ const sess =
 	secret: process.env.SESSION_SECRET,
 	cookie:
 	{
-		expires: 60 * 60 * 1000,
+		expires: 60 * 60 * 1000, //session expires after an hour
 	},
 	resave: false,
 	saveUninitialized: true,
